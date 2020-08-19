@@ -7,6 +7,7 @@ import {
     Param,
     Delete,
 } from '@nestjs/common';
+
 import { ProductService } from './product.service';
 import { CreateProductDTO } from './dto/create-product.dto';
 import { Product } from './product.entity';
@@ -32,7 +33,6 @@ export class ProductController {
     @Get('/:productId')
     public async getProduct(@Param('productId') productId: number) {
         const product = await this.productService.getProduct(productId);
-        return product;
     }
 
     @Patch('/edit/:productId')

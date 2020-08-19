@@ -40,7 +40,7 @@ describe('ProductService', () => {
         description: 'sample description',
         price: 'sample price',
       };
-
+      
       const result = await productService.createProduct(createProductDto);
 
       expect(productRepository.createProduct).toHaveBeenCalledWith(
@@ -76,6 +76,7 @@ describe('ProductService', () => {
       expect(result).toEqual(mockProduct);
 
       expect(productRepository.findOne).toHaveBeenCalledWith(1);
+      return result
     });
 
     it('throws an error as a product is not found', () => {
